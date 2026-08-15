@@ -1,0 +1,44 @@
+Foundry Local ve Temel Özellikleri:
+Foundry Local, verilerin cihaz dışına çıkmadan yerel donanım üzerinde güvenle işlendiği, uçtan uca yerel yapay zeka ve otonom ajan geliştirme platformudur.
+
+Güvenlik ve Veri Gizliliği:
+Tüm veri işleme ve model çalıştırma süreçleri tamamen yerel donanım (on-premise) üzerinde gerçekleşir. Üçüncü taraf bulut sunucularına veri veya log gönderilmez, tam kurumsal veri gizliliği sağlanır.
+
+RAG Mimarisi ve Bilgi Bankası:
+Sistem, yerel dokümanları anlık olarak tarayan hafif bir Retrieval-Augmented Generation (RAG) motoru barındırır. Model, bilmediği konularda uydurma yapmak yerine doğrudan data klasöründeki kaynak metinleri referans alır.
+
+Teknik Altyapı ve Modülerlik:
+Proje; Pydantic veri modelleriyle tip güvenliği sağlayan, nesne yönelimli (OOP) ve modüler bir mimariyle geliştirilmiştir. Yerel LLM servisleriyle HTTP tabanlı REST API üzerinden haberleşir.
+
+Proje Geliştiricisi:
+Bu proje Enes Aslan tarafından Microsoft Foundry Local ekosistemine özel olarak geliştirilmiştir.
+
+Şirket Tanıtımı ve Temel Misyon:
+Şirketimiz, yeni nesil yapay zeka çözümleri ve otonom sistemler geliştiren öncü bir teknoloji kuruluşudur. Temel misyonumuz; kurumsal verilerin gizliliğini en üst düzeyde koruyarak işletmelere yerel, güvenilir ve yüksek performanslı yapay zeka altyapıları sunmaktır.
+
+Şirket Çalışma Saatleri ve Hibrit Düzen:
+Çalışma saatlerimiz hafta içi 09:00 - 18:00 arasındadır. Haftada 2 gün ofis, 3 gün uzaktan (remote) çalışma modeli uygulanır. Esnek mesai başlangıcı 08:00 - 10:00 saatleri arasındadır.
+
+İzin Hakları ve Yıllık İzin Prosedürü:
+Tüm tam zamanlı çalışanlarımız ilk yıl için 14 iş günü yıllık izin hakkına sahiptir. İzin talepleri şirket içi portal üzerinden en az 3 iş günü öncesinden iletilmelidir.
+
+Maaş ve Yan Hak Politikaları:
+Maaş ödemeleri her ayın son iş günü banka hesaplarına yatırılır. Şirketimiz çalışanlarına özel sağlık sigortası, aylık yemek kartı desteği ve yıllık teknoloji eğitim bütçesi sağlamaktadır.
+
+Fazla Mesai ve Nöbet Düzeni:
+Haftalık 45 saati aşan çalışmalar için fazla mesai ücreti yüzde 50 artırımlı olarak bir sonraki ayın bordrosuna yansıtılır.
+
+Python Programlama Dili:
+Python, 1991 yılında Guido van Rossum tarafından geliştirilen; sade sözdizimi, geniş kütüphane ekosistemi ve yapay zeka/veri bilimi alanındaki yaygınlığı ile bilinen yüksek seviyeli bir programlama dilidir.
+
+Yapay Zeka ve Makine Öğrenimi:
+Yapay Zeka, insan zekasını taklit edebilen sistemler bütünüdür. Makine Öğrenimi ise sistemlerin açıkça programlanmadan verilerden örüntüler öğrenmesini sağlayan yapay zekanın bir alt dalıdır.
+
+Büyük Dil Modelleri (LLM):
+Büyük Dil Modelleri (LLM), devasa metin verileri üzerinde eğitilerek doğal dil anlama, metin üretme, özetleme ve kod yazma gibi karmaşık görevleri gerçekleştiren derin öğrenme modelleridir.
+
+Açık Kaynak Yazılım Felsefesi:
+Açık kaynak yazılımlar, kaynak kodları herkes tarafından incelenebilen, değiştirilebilen ve dağıtılabilen projelerdir; yazılım dünyasında şeffaflık, güvenlik ve topluluk iş birliğini teşvik eder.
+
+Bilgisayarın ve Modern Hesaplamanın Doğuşu:
+Modern bilgisayar biliminin ve yapay zekanın temelleri Alan Turing'in teorik çalışmaları ve 20. yüzyılın ortalarında geliştirilen ENIAC gibi ilk elektronik hesaplama sistemleriyle atılmıştır.
