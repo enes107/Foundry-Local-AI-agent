@@ -1,65 +1,83 @@
 import os
-import requests
-from typing import List
-from src.schemas import ChatMessage, AgentResponse
-from src.rag import SimpleRAG
+from openai import OpenAI
+from src.schemas import AgentResponse
+from src.rag import LocalRAG
 
 class LocalAgent:
-    """
-    Foundry Local projesi icin Yapay Zeka Ajan sinifi.
-    Bellek yonetimi, Pydantic dogrulamasi, RAG motoru ve LLM isteklerini yonetir.
-    """
-    def __init__(self, agent_name: str = "FoundryBot"):
+    def __init__(self, agent_name: str = "Foundry Local HR & Tech Support Agent", db_path: str = "data/knowledge.db"):
         self.agent_name = agent_name
-        self.system_prompt = os.getenv("SYSTEM_PROMPT", "Sen yardimsever bir yerel yapay zeka asistanisin.")
-        self.local_endpoint = os.getenv("LOCAL_LLM_ENDPOINT", "http://localhost:11434/api/generate")
-        self.history: List[ChatMessage] = []
+        self.rag = LocalRAG(db_path=db_path)
+        self.processed_count = 0
         
-        # RAG motorunu baslat
-        self.rag = SimpleRAG(data_folder="data")
+        # Foundry Local OpenAI-Uyumlu Local Endpoint
+        try:
+            self.client = OpenAI(
+                base_url= "http://127.0.0.1:56348/v1",
+                api_key="foundry-local"
+            )
+            self.model_alias = "qwen2.5-coder-0.5b-instruct-generic-cpu:4"
+            self.llm_ready = True
+        except Exception as e:
+            print(f"[UYARI] LLM istemcisi başlatılamadı: {e}")
+            self.llm_ready = False
+
+    def _generate_llm_response(self, user_query: str, context: str) -> str:
+        system_prompt = (
+            "Sen şirket içi yardım asistanısın. "
+            "Soruya sadece verilen metne dayanarak 1-2 cümlelik kısa ve doğrudan bir Türkçe yanıt ver. "
+            "Soru metnini yanıtta tekrarlama."
+        )
         
-        # Sistem talimatini gecmise ekle
-        self.history.append(ChatMessage(role="system", content=self.system_prompt))
-        print(f"[{self.agent_name}] Ajan ve RAG Bilgi Bankasi hazirlandi.")
+        user_prompt = f"Metin:\n{context}\n\nSoru: {user_query}\nYanıt:"
+        
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_alias,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                temperature=0.1,
+                max_tokens=80,             # Uzun döngülere girmesini engeller
+                frequency_penalty=1.2,     # Cümle tekrarlarını cezalandırır
+                stop=["\nSen:", "\nSoru:", "\n1.", "\n-", "###"] # Liste veya yeni soru başlatmasını keser
+            )
+            reply = response.choices[0].message.content.strip()
+            # Eğer model yine de boş veya çok bozuk dönerse ham bağlamı ver
+            return reply if len(reply) > 5 else context
+        except Exception:
+            return context
 
     def process_query(self, user_query: str) -> AgentResponse:
-        clean_query = user_query.strip()
-        if not clean_query:
-            return AgentResponse(
-                agent_name=self.agent_name,
-                reply="Lutfen bos bir mesaj gondermeyin.",
-                status_code=400
+        self.processed_count += 1
+        
+        # 1. RAG ile SQLite'tan en alakalı parçayı getir (threshold: 0.60)
+        chunks = self.rag.get_top_chunks(user_query, top_k=2)
+        
+        if chunks and chunks[0][2] >= 0.55:
+            topic, content, similarity = chunks[0]
+            confidence = float(similarity)
+            sources = [topic]
+            raw_context = content
+            
+            
+            reply = raw_context
+        else:
+            # Eşik altı (Out-of-scope) Fallback mekanizması
+            confidence = float(chunks[0][2]) if chunks else 0.0
+            sources = []
+            reply = (
+                "Üzgünüm, şirket bilgi tabanında bu konuyla ilgili doğrulanmış bir bilgi bulunamadı. "
+                "Yalnızca çalışma saatleri, fazla mesai, hibrit çalışma, maaş ve bilgi güvenliği konularında yardımcı olabilirim."
             )
-
-        # Kullanici mesajini kaydet
-        self.history.append(ChatMessage(role="user", content=clean_query))
-
-        # 1. RAG ile Bilgi Bankasini Tara
-        context, sources = self.rag.search(clean_query)
-
-        # 2. Yanit Uretimi
-        reply_text = self._generate_answer(clean_query, context)
-
-        # Asistan yanitini kaydet
-        self.history.append(ChatMessage(role="assistant", content=reply_text))
-
+            
         return AgentResponse(
             agent_name=self.agent_name,
-            reply=reply_text,
-            status_code=200,
-            sources=sources
+            query=user_query,
+            reply=reply,
+            sources=sources,
+            confidence_score=confidence
         )
 
-    def _generate_answer(self, prompt: str, context: str) -> str:
-        if context:
-            return (
-                f"[RAG Bilgi Bankasından Yanıt]:\n"
-                f"{context}\n\n"
-                f"(Kaynak: data/knowledge.txt | Gecmis Mesaj: {len(self.history)})"
-            )
-
-        # RAG'de bulunamazsa genel yanit mekanizmasi
-        return f"[Yerel Model Yanıtı]: '{prompt}' sorusu islendi. (Ek bir yerel dokuman bilgisi bulunamadi)"
-
-    def get_history_summary(self) -> int:
-        return len(self.history)
+    def get_processed_count(self) -> int:
+        return self.processed_count

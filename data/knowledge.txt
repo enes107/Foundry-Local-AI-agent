@@ -1,44 +1,49 @@
-Foundry Local ve Temel Özellikleri:
-Foundry Local, verilerin cihaz dışına çıkmadan yerel donanım üzerinde güvenle işlendiği, uçtan uca yerel yapay zeka ve otonom ajan geliştirme platformudur.
+# 1. ÇALIŞMA DÜZENİ VE SAATLERİ
+# Şirket Çalışma Saatleri
+Şirketimizde standart haftalık çalışma süresi 40 saattir. Günlük mesai 09:00 - 18:00 saatleri arasındadır. 12:30 - 13:30 saatleri arası 1 saatlik öğle molası uygulanır.
 
-Güvenlik ve Veri Gizliliği:
-Tüm veri işleme ve model çalıştırma süreçleri tamamen yerel donanım (on-premise) üzerinde gerçekleşir. Üçüncü taraf bulut sunucularına veri veya log gönderilmez, tam kurumsal veri gizliliği sağlanır.
+# Hibrit Çalışma Politikası
+Teknik ve idari ekipler haftada 2 gün ofis, 3 gün uzaktan (hibrit) çalışmaktadır. Hangi günlerin ofis olacağı departman yöneticisi ile haftalık planlanır.
 
-RAG Mimarisi ve Bilgi Bankası:
-Sistem, yerel dokümanları anlık olarak tarayan hafif bir Retrieval-Augmented Generation (RAG) motoru barındırır. Model, bilmediği konularda uydurma yapmak yerine doğrudan data klasöründeki kaynak metinleri referans alır.
+# Fazla Mesai ve Ücretlendirme
+Haftalık 40 saati aşan çalışmalar fazla mesai kabul edilir. Fazla mesai ücreti saatlik bazda %50 artırımlı ödenir veya çalışanın talebine göre serbest zaman izni olarak verilir.
 
-Teknik Altyapı ve Modülerlik:
-Proje; Pydantic veri modelleriyle tip güvenliği sağlayan, nesne yönelimli (OOP) ve modüler bir mimariyle geliştirilmiştir. Yerel LLM servisleriyle HTTP tabanlı REST API üzerinden haberleşir.
+# Esnek Çalışma Saatleri
+Çekirdek saatler 10:00 - 16:00 arasıdır. Çalışanlar sabah 08:00 - 10:00 arasında işe başlayıp, 8 saatlik mesailerini tamamlayarak 17:00 - 19:00 arasında çıkış yapabilirler.
 
-Proje Geliştiricisi:
-Bu proje Enes Aslan tarafından Microsoft Foundry Local ekosistemine özel olarak geliştirilmiştir.
+# Şirket İçi Mola ve Dinlenme Saatleri
+Günde 2 kez, 10:30 ve 15:30 saatlerinde 15'er dakikalık çay-kahve dinlenme molaları verilir. Bu molalar çalışma süresine dahildir.
 
-Şirket Tanıtımı ve Temel Misyon:
-Şirketimiz, yeni nesil yapay zeka çözümleri ve otonom sistemler geliştiren öncü bir teknoloji kuruluşudur. Temel misyonumuz; kurumsal verilerin gizliliğini en üst düzeyde koruyarak işletmelere yerel, güvenilir ve yüksek performanslı yapay zeka altyapıları sunmaktır.
 
-Şirket Çalışma Saatleri ve Hibrit Düzen:
-Çalışma saatlerimiz hafta içi 09:00 - 18:00 arasındadır. Haftada 2 gün ofis, 3 gün uzaktan (remote) çalışma modeli uygulanır. Esnek mesai başlangıcı 08:00 - 10:00 saatleri arasındadır.
+# 2. İZİN VE SOSYAL HAKLAR
+# Yıllık Ücretli İzin Hakları
+1 ile 5 yıl arası kıdeme sahip çalışanlar için yıllık izin 14 iş günüdür. 5 yıldan fazla kıdemi olan çalışanlar için yıllık izin 20 iş gününe yükselir.
 
-İzin Hakları ve Yıllık İzin Prosedürü:
-Tüm tam zamanlı çalışanlarımız ilk yıl için 14 iş günü yıllık izin hakkına sahiptir. İzin talepleri şirket içi portal üzerinden en az 3 iş günü öncesinden iletilmelidir.
+# İzin Talep ve Onay Süreci
+Tüm izin talepleri şirket portalı üzerinden en az 1 hafta önceden oluşturulmalıdır. İzinler departman yöneticisi ve İK onayından sonra kesinleşir.
 
-Maaş ve Yan Hak Politikaları:
-Maaş ödemeleri her ayın son iş günü banka hesaplarına yatırılır. Şirketimiz çalışanlarına özel sağlık sigortası, aylık yemek kartı desteği ve yıllık teknoloji eğitim bütçesi sağlamaktadır.
+# Mazeret ve Özel İzinler
+Evlilik izni 3 gün, babalık izni 5 gün, birinci derece yakın vefatı durumunda 3 gün ücretli mazeret izni verilir. Taşınma durumunda yılda 1 gün idari izin hakkı bulunur.
 
-Fazla Mesai ve Nöbet Düzeni:
-Haftalık 45 saati aşan çalışmalar için fazla mesai ücreti yüzde 50 artırımlı olarak bir sonraki ayın bordrosuna yansıtılır.
+# Yemek ve Ulaşım Desteği
+Ofis ve hibrit günlerinde çalışanların hesaplarına günlük kurumsal yemek kartı (multinet/sodexo) bakiyesi yüklenir. Ofise ulaşım için şirket servisleri veya yol ücreti desteği sağlanır.
 
-Python Programlama Dili:
-Python, 1991 yılında Guido van Rossum tarafından geliştirilen; sade sözdizimi, geniş kütüphane ekosistemi ve yapay zeka/veri bilimi alanındaki yaygınlığı ile bilinen yüksek seviyeli bir programlama dilidir.
+# Özel Sağlık Sigortası
+İşe başlama tarihinden itibaren tüm tam zamanlı çalışanlara kapsamlı özel sağlık sigortası (ÖSS) tanımlanır. Çalışanlar indirimli olarak aile bireylerini de bu kapsama dahil edebilir.
 
-Yapay Zeka ve Makine Öğrenimi:
-Yapay Zeka, insan zekasını taklit edebilen sistemler bütünüdür. Makine Öğrenimi ise sistemlerin açıkça programlanmadan verilerden örüntüler öğrenmesini sağlayan yapay zekanın bir alt dalıdır.
 
-Büyük Dil Modelleri (LLM):
-Büyük Dil Modelleri (LLM), devasa metin verileri üzerinde eğitilerek doğal dil anlama, metin üretme, özetleme ve kod yazma gibi karmaşık görevleri gerçekleştiren derin öğrenme modelleridir.
+# 3. TEKNOLOJİ, BİLGİ GÜVENLİĞİ VE GELİŞTİRME
+# Python Programlama Dili ve Kullanım Alanları
+Python; nesne yönelimli, dinamik tipli, açık kaynaklı ve yüksek seviyeli bir programlama dilidir. Şirketimizde veri analitiği, yapay zeka/makine öğrenimi, otomasyon scriptleri ve backend API servislerinin geliştirilmesinde temel dil olarak kullanılır.
 
-Açık Kaynak Yazılım Felsefesi:
-Açık kaynak yazılımlar, kaynak kodları herkes tarafından incelenebilen, değiştirilebilen ve dağıtılabilen projelerdir; yazılım dünyasında şeffaflık, güvenlik ve topluluk iş birliğini teşvik eder.
+# Yapay Zeka ve Yerel Model Standartları
+Şirketimizde veri gizliliği nedeniyle müşteri verileri harici bulut modellerine aktarılmaz. Microsoft Foundry Local standartlarında yerel SLM/LLM modelleri (Phi-3.5) ve yerel vektör embedding (all-MiniLM-L6-v2) altyapısı kullanılır.
 
-Bilgisayarın ve Modern Hesaplamanın Doğuşu:
-Modern bilgisayar biliminin ve yapay zekanın temelleri Alan Turing'in teorik çalışmaları ve 20. yüzyılın ortalarında geliştirilen ENIAC gibi ilk elektronik hesaplama sistemleriyle atılmıştır.
+# Kurumsal Bilgi Güvenliği ve Şifreleme Kuralları
+Kurumsal e-posta ve portallarda iki faktörlü kimlik doğrulama (2FA) zorunludur. Şifreler en az 12 karakter olmalı ve 90 günde bir yenilenmelidir. Şirket verileri şahsi USB bellek veya harici disklere kopyalanamaz.
+
+# Donanım ve Bilgisayar Kullanım Esasları
+Çalışanlara tahsis edilen şirket dizüstü bilgisayarlarına izinsiz üçüncü taraf yazılım yüklenemez. Cihazların tüm disk şifrelemeleri (BitLocker) aktif tutulmalıdır.
+
+# Kod İnceleme (Code Review) ve Git Standartları
+Geliştirilen tüm kodlar ana dala (main branch) gönderilmeden önce en az bir kıdemli yazılımcı tarafından gözden geçirilip onaylanmalıdır (Pull Request onayı zorunludur).
